@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_flutter_sample/screens/LibaryScreen.dart';
-import 'package:youtube_flutter_sample/screens/OnTheRiseScreen.dart';
-import 'package:youtube_flutter_sample/screens/StartScreen.dart';
-import 'package:youtube_flutter_sample/screens/SubscriptionsScreen.dart';
+import 'package:youtube_flutter_sample/pages/libary/LibaryScreen.dart';
+import 'package:youtube_flutter_sample/pages/onTheRise/OnTheRiseScreen.dart';
+import 'package:youtube_flutter_sample/pages/start/StartScreen.dart';
+import 'package:youtube_flutter_sample/pages/subscriptions/SubscriptionsScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Colors.white,
         title: Image.asset(
-            "images/youtube.png",
+            "assets/images/youtube.png",
             width: 98,
             height: 22,
         ),
