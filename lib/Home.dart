@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  int _currentIndexBottomNavigation = 0;
+  int _currentScreenIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +57,14 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: _screens[_currentIndexBottomNavigation],
+      body: _screens[_currentScreenIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         fixedColor: Colors.red,
-        currentIndex: _currentIndexBottomNavigation,
+        currentIndex: _currentScreenIndex,
         onTap: (index){
           setState(() {
-            _currentIndexBottomNavigation = index;
+            _currentScreenIndex = index;
           });
         },
         items: [
