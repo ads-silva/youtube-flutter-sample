@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_flutter_sample/screens/LibaryScreen.dart';
+import 'package:youtube_flutter_sample/screens/OnTheRiseScreen.dart';
+import 'package:youtube_flutter_sample/screens/StartScreen.dart';
+import 'package:youtube_flutter_sample/screens/SubscriptionsScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -13,6 +17,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
+    List<Widget> _screens =  [
+      StartScreen(),
+      OnTheRiseScreen(),
+      SubscriptionsScreen(),
+      LibaryScreen(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -45,7 +57,7 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: Container(),
+      body: _screens[_currentIndexBottomNavigation],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         fixedColor: Colors.red,
