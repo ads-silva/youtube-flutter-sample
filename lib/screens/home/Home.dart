@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_flutter_sample/pages/libary/LibaryScreen.dart';
-import 'package:youtube_flutter_sample/pages/onTheRise/OnTheRiseScreen.dart';
-import 'package:youtube_flutter_sample/pages/start/StartScreen.dart';
-import 'package:youtube_flutter_sample/pages/subscriptions/SubscriptionsScreen.dart';
+import 'package:youtube_flutter_sample/screens/home/views/LibaryScreen.dart';
+import 'package:youtube_flutter_sample/screens/home/views/OnTheRiseScreen.dart';
+import 'package:youtube_flutter_sample/screens/home/views/StartScreen.dart';
+import 'package:youtube_flutter_sample/screens/home/views/SubscriptionsScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:youtube_flutter_sample/App.dart';
+import 'package:youtube_flutter_sample/config/startupConfig.dart';
+import 'package:youtube_flutter_sample/screens/home/Home.dart';
 
 Future main() async {
-  await dotenv.load(fileName: ".env");
-  runApp(App());
+  await startupConfig();
+  runApp(MaterialApp(
+    home: Home(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
