@@ -22,6 +22,6 @@ class _StartScreenState extends State<StartScreen> {
           fontSize: 25,
         ),
       ),
-    );return Container();
+    );
   }
 }
