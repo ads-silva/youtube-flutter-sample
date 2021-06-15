@@ -57,7 +57,10 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: _screens[_currentScreenIndex],
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: _screens[_currentScreenIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         fixedColor: Colors.red,
