@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_flutter_sample/models/Video.dart';
 import 'package:youtube_flutter_sample/services/ApiYoutube.dart';
 
 class StartScreen extends StatefulWidget {
@@ -9,11 +10,17 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
+
+  Future<List<Video>>_listVideos() async {
+    ApiYoutube apiYoutube = ApiYoutube();
+    return await apiYoutube.search("");
+  }
+
   @override
   Widget build(BuildContext context) {
 
     return FutureBuilder<List<Video>>(
-      future: null,
+      future: _listVideos(),
       builder: (context, snapshot) {
         switch (snapshot.connectionState){
           case ConnectionState.none:
