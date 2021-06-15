@@ -12,16 +12,36 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
 
-    ApiYoutube apiYoutube = ApiYoutube();
-    apiYoutube.search("");
-
-    return Container(
-      child: Text(
-        "Inicío",
-        style: TextStyle(
-          fontSize: 25,
-        ),
-      ),
+    return FutureBuilder<List<Video>>(
+      future: null,
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState){
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+            break;
+          case ConnectionState.active:
+          case ConnectionState.done:
+            if( snapshot.hasData){
+              return ListView.separated(
+                  itemBuilder: null,
+                  separatorBuilder: (context, index) => Divider(
+                    height: 2,
+                    color: Colors.grey,
+                  ),
+                  itemCount: snapshot.data.length
+              );
+            } else {
+              return Center(
+                child: Text("Nenhum dado a ser exibido"),
+              );
+            }
+            break;
+        }
+        return Text("Nenhum dado a ser exibido");
+      },
     );
   }
 }
