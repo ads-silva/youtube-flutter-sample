@@ -33,7 +33,28 @@ class _StartScreenState extends State<StartScreen> {
           case ConnectionState.done:
             if( snapshot.hasData){
               return ListView.separated(
-                  itemBuilder: null,
+                  itemBuilder: (context, index){
+
+                    List<Video> videos = snapshot.data;
+                    Video video = videos[index];
+
+                    return Column(
+                      children: [
+                        Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(video.image)
+                              )
+                          ),
+                        ),
+                        ListTile(
+                          title: Text(video.title),
+                        )
+                      ],
+                    );
+                  },
                   separatorBuilder: (context, index) => Divider(
                     height: 2,
                     color: Colors.grey,
