@@ -3,6 +3,7 @@ import 'package:youtube_flutter_sample/screens/home/views/LibaryScreen.dart';
 import 'package:youtube_flutter_sample/screens/home/views/OnTheRiseScreen.dart';
 import 'package:youtube_flutter_sample/screens/home/views/StartScreen.dart';
 import 'package:youtube_flutter_sample/screens/home/views/SubscriptionsScreen.dart';
+import 'package:youtube_flutter_sample/screens/home/widgets/CustomSearchDelegate.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -32,19 +33,22 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Colors.white,
         title: Image.asset(
-            "assets/images/youtube.png",
-            width: 98,
-            height: 22,
+          "assets/images/youtube.png",
+          width: 98,
+          height: 22,
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.videocam),
-            onPressed: () {
-
+            icon: Icon(Icons.search),
+            onPressed: () async {
+              String res = await showSearch(
+                  context: context,
+                  delegate: CustomSearchDelegate()
+              );
             },
           ),
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.videocam),
             onPressed: () {
 
             },
@@ -72,20 +76,20 @@ class _HomeState extends State<Home> {
         },
         items: [
           BottomNavigationBarItem(
-            label: "Inicío",
-            icon: Icon(Icons.home)
+              label: "Inicío",
+              icon: Icon(Icons.home)
           ),
           BottomNavigationBarItem(
-            label: "Em alta",
-            icon: Icon(Icons.whatshot)
+              label: "Em alta",
+              icon: Icon(Icons.whatshot)
           ),
           BottomNavigationBarItem(
-            label: "Inscrições",
-            icon: Icon(Icons.subscriptions)
+              label: "Inscrições",
+              icon: Icon(Icons.subscriptions)
           ),
           BottomNavigationBarItem(
-            label: "Biblioteca",
-            icon: Icon(Icons.folder)
+              label: "Biblioteca",
+              icon: Icon(Icons.folder)
           ),
         ],
       ),
