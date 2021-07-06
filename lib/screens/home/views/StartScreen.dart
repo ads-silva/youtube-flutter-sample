@@ -51,6 +51,7 @@ class _StartScreenState extends State<StartScreen> {
                         ),
                         ListTile(
                           title: Text(video.title),
+                          subtitle: Text(video.chanel),
                         )
                       ],
                     );
