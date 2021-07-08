@@ -15,12 +15,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   int _currentScreenIndex = 0;
+  String _search = "";
 
   @override
   Widget build(BuildContext context) {
 
     List<Widget> _screens =  [
-      StartScreen(),
+      StartScreen(_search),
       OnTheRiseScreen(),
       SubscriptionsScreen(),
       LibaryScreen(),
@@ -41,10 +42,13 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {
-              String res = await showSearch(
+              String search = await showSearch(
                   context: context,
                   delegate: CustomSearchDelegate()
               );
+              setState(() {
+                _search = search;
+              });
             },
           ),
           IconButton(
