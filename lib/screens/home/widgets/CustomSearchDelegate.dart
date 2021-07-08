@@ -31,7 +31,31 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Container();
+    List<String> suggestionsList = [];
+
+    if ( query.isNotEmpty) {
+      suggestionsList = [
+        "Android", "Flutter", "IOS", "Jogos"
+      ].where((text) => text.toLowerCase().startsWith(query.toLowerCase())).toList();
+
+      return ListView.builder(
+          itemCount: suggestionsList.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              onTap: (){
+                close(context, suggestionsList[index]);
+              },
+              title: Text(suggestionsList[index]),
+            );
+          }
+      );
+    } else {
+      return Center(
+        child: Text("Nenhum resultado para a pesquisa!"),
+      );
+    }
+
+
   }
 
 }
